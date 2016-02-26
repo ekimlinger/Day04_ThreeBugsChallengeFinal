@@ -1,25 +1,29 @@
+html{
+	padding:none;
+}
 body{
 	background-color: tomato;
 	background: url(tkamCover.jpg) center fixed;
-	top: 0;
+	margin: 0;
 }
 .container {
 	margin:none;
 	padding:none;
-	top:0;
 	text-align: center;
 
 }
 .container h1{
-	margin-top:none;
+	margin-top:0;
 	margin-bottom:15px;
-	top:0px;
 	color: #E0D582;
 	background: black;
 	border-bottom-right-radius: 15px;
 	border-bottom-left-radius: 15px;
+	border-bottom:5px solid rgb(101,207,145);
 	padding-top: 25px;
 	padding-bottom: 25px;
+
+	font-family: "Arial Black", Gadget, sans-serif;
 }
 
 .employee {

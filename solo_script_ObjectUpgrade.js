@@ -19,7 +19,7 @@ function EmployeeSTI(name, stiPerc, salary, bonus, postBonusTotal){
   this.name = name;
   this.stiPerc = stiPerc;
   this.salary = salary;
-  this.bonus = bonus;
+  this.bonusAmmount = bonus;
   this.postBonusTotal = postBonusTotal;
 }
 
@@ -43,10 +43,10 @@ position = document.getElementById('content');
 //Loop the array, extracting each array and writing information to the array
 for(var i = 0; i < array.length; i++){
   
-  var tempEmpData = calculateSTI(array[i])
+  var newEmployeeObject = calculateSTI(array[i])
 
   //pushes data into stiArray
-  employeeSTIarray.push( tempEmpData );
+  employeeSTIarray.push( newEmployeeObject );
 
 }
 
@@ -69,7 +69,7 @@ for (var i = 0; i < employeeSTIarray.length; i++){
   //create sub nodes within the employee's div element
   $workingNode.append('<h2>' +workingEmployee.name+'</h1>');
   $workingNode.append('<p>Salary: $' +workingEmployee.salary+'</p>');
-  $workingNode.append('<p>Bonus ammount: $' +workingEmployee.bonus+'</p>');
+  $workingNode.append('<p>Bonus ammount: $' +workingEmployee.bonusAmmount+'</p>');
   $workingNode.append('<p>Total salary plus bonus: $' +workingEmployee.postBonusTotal+'</p>');
   
 
@@ -82,7 +82,13 @@ for (var i = 0; i < employeeSTIarray.length; i++){
 
 
 
-
+// function EmployeeSTI(name, stiPerc, salary, bonus, postBonusTotal){
+//   this.name = name;
+//   this.stiPerc = stiPerc;
+//   this.salary = salary;
+//   this.bonus = bonus;
+//   this.postBonusTotal = postBonusTotal;
+// }
 
 
 
@@ -98,15 +104,15 @@ function calculateSTI(employee){
   var baseSalary = parseInt(employee.salary);
   var reviewScore = employee.rating;
 
-  var bonus = getBaseSTI(reviewScore) + getYearAdjustment(employeeNumber) - getIncomeAdjustment(baseSalary);
-  if(bonus > 0.13){
-    bonus = 0.13;
+  var bonusPerc = getBaseSTI(reviewScore) + getYearAdjustment(employeeNumber) - getIncomeAdjustment(baseSalary);
+  if(bonusPerc > 0.13){
+    bonusPerc = 0.13;
   }
   newPerson.salary = baseSalary
-  newPerson.stiPerc = bonus;
-  newPerson.bonus = Math.round( baseSalary * (1.0 + bonus) );
-  newPerson.postBonusTotal = Math.round( baseSalary * bonus );
-  console.log(newPerson.name + " " + newPerson.salary + " " + newPerson.bonus + " " + newPerson.postBonusTotal);
+  newPerson.stiPerc = bonusPerc;
+  newPerson.postBonusTotal = Math.round( baseSalary * (1.0 + bonusPerc) );
+  newPerson.bonusAmmount = Math.round( baseSalary * bonusPerc );
+  console.log(newPerson.name + " " + newPerson.salary + " " + newPerson.bonusAmmount + " " + newPerson.postBonusTotal);
   return newPerson;
 }
 
