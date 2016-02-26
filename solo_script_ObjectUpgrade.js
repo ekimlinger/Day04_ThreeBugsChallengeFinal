@@ -33,19 +33,15 @@ var Scout = new Employee("Jean Louise \'Scout\' Finch", "6243", "74750", 5);
 var array = [Atticus, Jem, Boo, Scout];
 console.log(array);
 
-//Create variables used to write to the DOM
+//Stores calculated STI data
+//Specifically used to write to the DOM in jQuery section
 var employeeSTIarray = [];
-//Capture the position of insertion into the DOM
-position = document.getElementById('content');
-
 
 
 //Loop the array, extracting each array and writing information to the array
 for(var i = 0; i < array.length; i++){
   
   var newEmployeeObject = calculateSTI(array[i])
-
-  //pushes data into stiArray
   employeeSTIarray.push( newEmployeeObject );
 
 }
@@ -77,18 +73,6 @@ for (var i = 0; i < employeeSTIarray.length; i++){
 
 
 });
-
-
-
-
-
-// function EmployeeSTI(name, stiPerc, salary, bonus, postBonusTotal){
-//   this.name = name;
-//   this.stiPerc = stiPerc;
-//   this.salary = salary;
-//   this.bonus = bonus;
-//   this.postBonusTotal = postBonusTotal;
-// }
 
 
 
